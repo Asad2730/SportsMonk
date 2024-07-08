@@ -6,6 +6,7 @@ import { HttpModule } from '@nestjs/axios';
 import { CricketDmsModule } from './cricket-dms/cricket-dms.module';
 
 
+
 @Module({
   imports: [
      TypeOrmModule.forRoot({
@@ -16,7 +17,7 @@ import { CricketDmsModule } from './cricket-dms/cricket-dms.module';
       password: '123',
       database: 'CricketDms',
       synchronize: true,
-      entities: [],
+      entities: [], // Include your generic entity here 
      }),
      HttpModule,
      CricketDmsModule

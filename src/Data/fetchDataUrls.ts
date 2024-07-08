@@ -1,0 +1,70 @@
+
+export const  auth = 'nKpad7kagg2a4Y69AMg3HZPJ0q4hKhMoEm4soqlNpNPF2EqNlwbcW0NZYxPX'
+
+export const urls: { [key: string]: string } = {
+    continents: 'https://cricket.sportmonks.com/api/v2.0/continents',
+    countries: 'https://cricket.sportmonks.com/api/v2.0/countries',
+    leagues: 'https://cricket.sportmonks.com/api/v2.0/leagues',
+    seasons: 'https://cricket.sportmonks.com/api/v2.0/seasons',
+    fixtures: 'https://cricket.sportmonks.com/api/v2.0/fixtures',
+    teams: 'https://cricket.sportmonks.com/api/v2.0/teams',
+    players: 'https://cricket.sportmonks.com/api/v2.0/players',
+    officials: 'https://cricket.sportmonks.com/api/v2.0/officials',
+    venues: 'https://cricket.sportmonks.com/api/v2.0/venues',
+    positions: 'https://cricket.sportmonks.com/api/v2.0/positions',
+    stages: 'https://cricket.sportmonks.com/api/v2.0/stages',
+    team_rankings: 'https://cricket.sportmonks.com/api/v2.0/team-rankings', //table name is rankings
+    standings_season: 'https://cricket.sportmonks.com/api/v2.0/standings/season/525',
+    standings_stage: 'https://cricket.sportmonks.com/api/v2.0/standings/stage/11',
+    scores: 'https://cricket.sportmonks.com/api/v2.0/scores',
+    fixture_bowling: 'https://cricket.sportmonks.com/api/v2.0/fixtures/21897?include=bowling',
+    fixture_batting: 'https://cricket.sportmonks.com/api/v2.0/fixtures/21897?include=batting',
+    fixture_runs: 'https://cricket.sportmonks.com/api/v2.0/fixtures/21897?include=runs',
+    fixture_lineup: 'https://cricket.sportmonks.com/api/v2.0/fixtures/21897?include=lineup',
+    fixture_balls: 'https://cricket.sportmonks.com/api/v2.0/fixtures/21897?include=balls',
+    fixture_referee: 'https://cricket.sportmonks.com/api/v2.0/fixtures/21897?include=referee',
+    fixture_firstumpire: 'https://cricket.sportmonks.com/api/v2.0/fixtures/21897?include=firstumpire',
+    fixture_secondumpire: 'https://cricket.sportmonks.com/api/v2.0/fixtures/21897?include=secondumpire',
+    fixture_tvumpire: 'https://cricket.sportmonks.com/api/v2.0/fixtures/21897?include=tvumpire',
+    fixture_winnerteam: 'https://cricket.sportmonks.com/api/v2.0/fixtures/21897?include=winnerteam',
+    fixture_tosswon: 'https://cricket.sportmonks.com/api/v2.0/fixtures/21897?include=tosswon',
+    fixture_winnerteam_duplicate: 'https://cricket.sportmonks.com/api/v2.0/fixtures/21897?include=winnerteam',
+    fixture_manofmatch: 'https://cricket.sportmonks.com/api/v2.0/fixtures/21897?include=manofmatch',
+    fixture_manofseries: 'https://cricket.sportmonks.com/api/v2.0/fixtures/21897?include=manofseries',
+    player_career: 'https://cricket.sportmonks.com/api/v2.0/players/2?include=career'
+  };
+  
+
+
+// export const urls:String[] = [
+//   'https://cricket.sportmonks.com/api/v2.0/continents',
+//   'https://cricket.sportmonks.com/api/v2.0/countries',
+//   'https://cricket.sportmonks.com/api/v2.0/leagues',
+//   'https://cricket.sportmonks.com/api/v2.0/seasons',
+//    'https://cricket.sportmonks.com/api/v2.0/fixtures',
+//    'https://cricket.sportmonks.com/api/v2.0/teams',
+//   'https://cricket.sportmonks.com/api/v2.0/players',
+//    'https://cricket.sportmonks.com/api/v2.0/officials',
+//  'https://cricket.sportmonks.com/api/v2.0/venues',
+//   'https://cricket.sportmonks.com/api/v2.0/positions',
+//   'https://cricket.sportmonks.com/api/v2.0/stages',
+//  'https://cricket.sportmonks.com/api/v2.0/team-rankings',
+//   'https://cricket.sportmonks.com/api/v2.0/standings/season/525',
+//   'https://cricket.sportmonks.com/api/v2.0/standings/stage/11',
+//    'https://cricket.sportmonks.com/api/v2.0/scores',
+//   'https://cricket.sportmonks.com/api/v2.0/fixtures/21897?include=bowling',
+//   'https://cricket.sportmonks.com/api/v2.0/fixtures/21897?include=batting',
+//   'https://cricket.sportmonks.com/api/v2.0/fixtures/21897?include=runs',
+//   'https://cricket.sportmonks.com/api/v2.0/fixtures/21897?include=lineup',
+//   'https://cricket.sportmonks.com/api/v2.0/fixtures/21897?include=balls',
+// 'https://cricket.sportmonks.com/api/v2.0/fixtures/21897?include=referee',
+// 'https://cricket.sportmonks.com/api/v2.0/fixtures/21897?include=firstumpire',
+// 'https://cricket.sportmonks.com/api/v2.0/fixtures/21897?include=secondumpire',
+// 'https://cricket.sportmonks.com/api/v2.0/fixtures/21897?include=tvumpire',
+// 'https://cricket.sportmonks.com/api/v2.0/fixtures/21897?include=winnerteam',
+//  'https://cricket.sportmonks.com/api/v2.0/fixtures/21897?include=tosswon',
+//  'https://cricket.sportmonks.com/api/v2.0/fixtures/21897?include=winnerteam',
+//   'https://cricket.sportmonks.com/api/v2.0/fixtures/21897?include=manofmatch',
+//  'https://cricket.sportmonks.com/api/v2.0/fixtures/21897?include=manofseries',
+//  'https://cricket.sportmonks.com/api/v2.0/players/2?include=career'
+// ] 

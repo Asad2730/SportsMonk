@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { HttpModule } from '@nestjs/axios';
+import { CricketDmsModule } from './cricket-dms/cricket-dms.module';
 
 
 @Module({
@@ -17,7 +18,8 @@ import { HttpModule } from '@nestjs/axios';
       synchronize: true,
       entities: [],
      }),
-     HttpModule
+     HttpModule,
+     CricketDmsModule
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -9,7 +9,7 @@ export class AppService {
   constructor(
     private readonly httpService: HttpService,
     @InjectDataSource() private db: DataSource
-  ) {}
+  ) { }
 
   async fetchDataFromApi(url: string): Promise<any> {
     try {
@@ -22,41 +22,45 @@ export class AppService {
 
   async ensureTableExists(tableName: string) {
     try {
-      await this.db.query(`
-        CREATE TABLE IF NOT EXISTS ${tableName} (
-          id SERIAL PRIMARY KEY,
-          data JSONB NOT NULL,
-          created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-          updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-        )
-      `);
+      await this.db.query(`CREATE TABLE IF NOT EXISTS ${tableName} ( 
+          id INT PRIMARY KEY,
+          data JSONB NOT NULL)`
+      );
     } catch (error) {
       throw new Error(`Failed to ensure table exists: ${error.message}`);
     }
   }
 
-  async saveOrUpdateData(tableName: string, data: any[]) {
+  async upsert(tableName: string, data: any[]) {
     try {
       for (const item of data) {
-        const existing = await this.db.query(`
-          SELECT * FROM ${tableName} WHERE data->>'id' = $1
-        `, [item.id]);
-
-        if (existing.length > 0) {
-          await this.db.query(`
-            UPDATE ${tableName}
-            SET data = $1, updated_at = CURRENT_TIMESTAMP
-            WHERE data->>'id' = $2
-          `, [item, item.id]);
-        } else {
-          await this.db.query(`
-            INSERT INTO ${tableName} (data)
-            VALUES ($1)
-          `, [item]);
-        }
+        await this.db.query(`INSERT INTO ${tableName} 
+        (id,data) VALUES ($1,$2) ON CONFLICT (id) DO NOTHING`,
+          [item.id, item]);
       }
     } catch (error) {
       throw new Error(`Failed to save or update data: ${error.message}`);
     }
   }
+
+  async syncData(apiUrl: string): Promise<String> {
+    try {
+      const data = await this.fetchDataFromApi(apiUrl);
+      if (!data.data || !Array.isArray(data.data) || data.data.length === 0) {
+        throw new Error('Invalid data format or empty data');
+      }
+      const tableName = data.data[0].resource;
+      if (!tableName) {
+        throw new Error('Resource name not found in the data');
+      }
+      await this.ensureTableExists(tableName);
+      await this.upsert(tableName, data.data);
+      return 'Data fetched and synced!';
+    } catch (error) {
+      return `Error: ${error.message} url:${apiUrl}`;
+    }
+
+
+  }
+
 }

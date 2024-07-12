@@ -9,7 +9,7 @@ export class CricketDmsService {
 
 
   async findAll(tableName: string, page: number = 1): Promise<CricketDm[]> {
-    const dataPerPage = 10;
+    const dataPerPage = 100;
     const skip = (page - 1) * dataPerPage;
     const query = `SELECT * FROM ${tableName} LIMIT ${dataPerPage} OFFSET ${skip}`;
     const objs = await this.db.query(query);

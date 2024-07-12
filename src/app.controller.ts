@@ -178,7 +178,7 @@ export class AppController {
 
 
   //Error: Failed to fetch data from API: Request failed with status code 401
-  //aunAuth with current tokken
+  //because of current Auth tokken 
   @Get('sync_fixture_bowling')
   async syncFixtureBowling() {
     const apiUrl = `${urls.fixture_bowling}?api_token=${auth}`;

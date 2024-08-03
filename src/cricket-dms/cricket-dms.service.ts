@@ -7,11 +7,12 @@ import { CricketDm } from './entities/cricket-dm.entity';
 export class CricketDmsService {
   constructor(@InjectDataSource() private readonly db: DataSource) {}
 
-
-  async findAll(tableName: string, page: number = 1): Promise<CricketDm[]> {
-    const dataPerPage = 100;
-    const skip = (page - 1) * dataPerPage;
-    const query = `SELECT * FROM ${tableName} LIMIT ${dataPerPage} OFFSET ${skip}`;
+  //, page: number = 1
+  async findAll(tableName: string): Promise<CricketDm[]> {
+    // const dataPerPage = 100;
+    // const skip = (page - 1) * dataPerPage;
+    // const query = `SELECT * FROM ${tableName} LIMIT ${dataPerPage} OFFSET ${skip}`;
+    const query = `SELECT * FROM ${tableName}`;
     const objs = await this.db.query(query);
     if (!objs.length) {
       throw new NotFoundException('No records found');

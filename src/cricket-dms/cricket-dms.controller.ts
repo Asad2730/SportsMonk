@@ -6,14 +6,17 @@ import {
   stagesTable, teamRankingsTable, scoresTable, standingsSeasonTable
 } from '../Data/tables/names';
 
+
 @Controller('cricket-dms')
 export class CricketDmsController {
   constructor(private readonly cricketDmsService: CricketDmsService) {}
+   
 
+  // @Query('p', ParseIntPipe) page: number = 1
   @Get('continents')
-  async getContinents(@Query('p', ParseIntPipe) page: number = 1) {
+  async getContinents() {
     try {
-      return await this.cricketDmsService.findAll(continentsTable, page);
+      return await this.cricketDmsService.findAll(continentsTable);
     } catch (error) {
       throw new Error(`Failed to fetch continents: ${error.message}`);
     }
@@ -29,9 +32,9 @@ export class CricketDmsController {
   }
 
   @Get('countries')
-  async getCountries(@Query('p', ParseIntPipe) page: number = 1) {
+  async getCountries() {
     try {
-      return await this.cricketDmsService.findAll(countriesTable, page);
+      return await this.cricketDmsService.findAll(countriesTable);
     } catch (error) {
       throw new Error(`Failed to fetch countries: ${error.message}`);
     }
@@ -47,9 +50,9 @@ export class CricketDmsController {
   }
 
   @Get('leagues')
-  async getLeagues(@Query('p', ParseIntPipe) page: number = 1) {
+  async getLeagues() {
     try {
-      return await this.cricketDmsService.findAll(leaguesTable, page);
+      return await this.cricketDmsService.findAll(leaguesTable);
     } catch (error) {
       throw new Error(`Failed to fetch leagues: ${error.message}`);
     }
@@ -65,9 +68,9 @@ export class CricketDmsController {
   }
 
   @Get('seasons')
-  async getSeasons(@Query('p', ParseIntPipe) page: number = 1) {
+  async getSeasons() {
     try {
-      return await this.cricketDmsService.findAll(seasonsTable, page);
+      return await this.cricketDmsService.findAll(seasonsTable);
     } catch (error) {
       throw new Error(`Failed to fetch seasons: ${error.message}`);
     }
@@ -83,9 +86,9 @@ export class CricketDmsController {
   }
 
   @Get('fixtures')
-  async getFixtures(@Query('p', ParseIntPipe) page: number = 1) {
+  async getFixtures() {
     try {
-      return await this.cricketDmsService.findAll(fixturesTable, page);
+      return await this.cricketDmsService.findAll(fixturesTable);
     } catch (error) {
       throw new Error(`Failed to fetch fixtures: ${error.message}`);
     }
@@ -101,9 +104,9 @@ export class CricketDmsController {
   }
 
   @Get('teams')
-  async getTeams(@Query('p', ParseIntPipe) page: number = 1) {
+  async getTeams() {
     try {
-      return await this.cricketDmsService.findAll(teamsTable, page);
+      return await this.cricketDmsService.findAll(teamsTable);
     } catch (error) {
       throw new Error(`Failed to fetch teams: ${error.message}`);
     }
@@ -119,9 +122,10 @@ export class CricketDmsController {
   }
 
   @Get('players')
-  async getPlayers(@Query('p', ParseIntPipe) page: number = 1) {
+  async getPlayers() {
     try {
-      return await this.cricketDmsService.findAll(playersTable, page);
+   
+      return  await this.cricketDmsService.findAll(playersTable)
     } catch (error) {
       throw new Error(`Failed to fetch players: ${error.message}`);
     }
@@ -137,9 +141,9 @@ export class CricketDmsController {
   }
 
   @Get('officials')
-  async getOfficials(@Query('p', ParseIntPipe) page: number = 1) {
+  async getOfficials() {
     try {
-      return await this.cricketDmsService.findAll(officialsTable, page);
+      return await this.cricketDmsService.findAll(officialsTable);
     } catch (error) {
       throw new Error(`Failed to fetch officials: ${error.message}`);
     }
@@ -155,9 +159,9 @@ export class CricketDmsController {
   }
 
   @Get('venues')
-  async getVenues(@Query('p', ParseIntPipe) page: number = 1) {
-    try {
-      return await this.cricketDmsService.findAll(venuesTable, page);
+  async getVenues() {
+    try { 
+      return await this.cricketDmsService.findAll(venuesTable);
     } catch (error) {
       throw new Error(`Failed to fetch venues: ${error.message}`);
     }
@@ -173,9 +177,9 @@ export class CricketDmsController {
   }
 
   @Get('positions')
-  async getPositions(@Query('p', ParseIntPipe) page: number = 1) {
+  async getPositions() {
     try {
-      return await this.cricketDmsService.findAll(positionsTable, page);
+      return await this.cricketDmsService.findAll(positionsTable);
     } catch (error) {
       throw new Error(`Failed to fetch positions: ${error.message}`);
     }
@@ -191,9 +195,9 @@ export class CricketDmsController {
   }
 
   @Get('stages')
-  async getStages(@Query('p', ParseIntPipe) page: number = 1) {
+  async getStages() {
     try {
-      return await this.cricketDmsService.findAll(stagesTable, page);
+      return await this.cricketDmsService.findAll(stagesTable);
     } catch (error) {
       throw new Error(`Failed to fetch stages: ${error.message}`);
     }
@@ -209,9 +213,9 @@ export class CricketDmsController {
   }
 
   @Get('rankings')
-  async getRankings(@Query('p', ParseIntPipe) page: number = 1) {
+  async getRankings() {
     try {
-      return await this.cricketDmsService.findAll(teamRankingsTable, page);
+      return await this.cricketDmsService.findAll(teamRankingsTable);
     } catch (error) {
       throw new Error(`Failed to fetch rankings: ${error.message}`);
     }
@@ -227,9 +231,9 @@ export class CricketDmsController {
   }
 
   @Get('scores')
-  async getScores(@Query('p', ParseIntPipe) page: number = 1) {
+  async getScores() {
     try {
-      return await this.cricketDmsService.findAll(scoresTable, page);
+      return await this.cricketDmsService.findAll(scoresTable);
     } catch (error) {
       throw new Error(`Failed to fetch scores: ${error.message}`);
     }
@@ -245,9 +249,9 @@ export class CricketDmsController {
   }
 
   @Get('standings')
-  async getStandings(@Query('p', ParseIntPipe) page: number = 1) {
+  async getStandings() {
     try {
-      return await this.cricketDmsService.findAll(standingsSeasonTable, page);
+      return await this.cricketDmsService.findAll(standingsSeasonTable);
     } catch (error) {
       throw new Error(`Failed to fetch standings: ${error.message}`);
     }
